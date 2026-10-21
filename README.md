@@ -7,9 +7,18 @@
 AstrBot 内置的 STT 只有 `openai_whisper_api`，请求 `POST /audio/transcriptions`（multipart）。
 阶跃只有 `POST /audio/asr/sse`（JSON + base64 音频，SSE 流式返回），所以填 base_url 是没用的，只能加适配器。
 
+## 环境要求
+
+- **AstrBot >= 4.26.0**
+
+本插件用 `astrbot.core.utils.media_utils.MediaResolver` 做音频转码，该类自 4.26.0 起才存在。低于此版本会在加载时报 `ImportError`。
+
 ## 安装
 
-把整个目录放到 `AstrBot/data/plugins/astrbot_plugin_stepfun_asr/`，然后在 WebUI 插件页启用（或重启 AstrBot）。
+方式一（推荐）：WebUI → 插件 → 安装插件 → 填本仓库地址
+`https://github.com/yyscream/astrbot_plugin_stepfun_asr`
+
+方式二：把整个目录放到 `AstrBot/data/plugins/astrbot_plugin_stepfun_asr/`，然后在 WebUI 插件页启用（或重启 AstrBot）。
 
 ## 配置
 
@@ -31,3 +40,13 @@ WebUI → 配置 → 其他配置 → 提供商 → 新增，类型选 **StepFun
 - 音频统一转成 WAV 再上传（`MediaResolver`），opus/silk/amr 等平台格式都能吃。
 - `enable_itn` 固定开启（数字、标点规范化）；`language` 不传，交给服务端自动判断。
 - 没有实现 WebSocket 双向流式（`/audio/asr-stream`），语音消息转文字用不到。
+- 依赖 `httpx`，AstrBot 主程序已自带，无需额外安装。
+- 无需填写 `requirements.txt`。
+
+## 接口文档
+
+<https://platform.stepfun.com/docs/zh/api-reference/audio/asr-sse>
+
+## License
+
+MIT

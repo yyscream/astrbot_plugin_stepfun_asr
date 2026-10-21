@@ -1,6 +1,8 @@
 name: "astrbot_plugin_stepfun_asr"
 display_name: "StepFun ASR（阶跃星辰语音识别）"
+short_desc: "为 AstrBot 增加阶跃星辰 StepFun ASR 语音识别提供商（HTTP + SSE）"
 desc: "为 AstrBot 增加阶跃星辰 StepFun ASR 提供商类型（HTTP + SSE，支持 stepaudio-3-asr-max / stepaudio-2.5-asr）"
 version: "1.0.0"
 author: "yiyisu"
 repo: "https://github.com/yyscream/astrbot_plugin_stepfun_asr"
+astrbot_version: ">=4.26.0"
