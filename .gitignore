@@ -1,4 +1,11 @@
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+env/
+.idea/
+.vscode/
 .DS_Store
 *.log
